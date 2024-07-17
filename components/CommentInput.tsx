@@ -41,7 +41,7 @@ const CommentInput = () => {
                         <div className="flex items-start gap-4">
                             <img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300" src={avatar} alt="Bordered avatar" />
                             <div className="w-full sm:w-96 py-2 px-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
-                                <textarea id="comment" rows='3' {...register('comment', { required: true })}
+                                <textarea id="comment" rows={3} {...register('comment', { required: true })}
                                     placeholder="Add a comment..."
                                     className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none resize-none"
                                     onKeyDown={(e) => {
