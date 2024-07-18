@@ -15,7 +15,7 @@ const CommentInput = () => {
     const [avatar, setAvatar] = useState('');
 
     useEffect(() => {
-        const randomAvatar = `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`;
+        const randomAvatar = `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`; // got from GPT
         setAvatar(randomAvatar);
     }, []);
 
@@ -24,7 +24,7 @@ const CommentInput = () => {
             id: Date.now(),
             body: data.comment,
             name: 'maxblagun',
-            avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`,
+            avatar: avatar,
             votes: 0
         };
         dispatch(addComment(newComment));
