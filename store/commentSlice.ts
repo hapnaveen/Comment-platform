@@ -5,6 +5,7 @@ interface Comment {
     name: string;
     body: string;
     avatar: string;
+    votes: number;
 }
 
 interface CommentState {
@@ -24,9 +25,21 @@ const commentSlice = createSlice({
         },
         removeComment: (state, action: PayloadAction<number>) => {
             state.comments = state.comments.filter(comment => comment.id !== action.payload);
+        }, 
+        increaseVote: (state, action: PayloadAction<number>) => {
+            const comment = state.comments.find(comment => comment.id === action.payload);
+            if (comment) {
+              comment.votes += 1;
+            }
+        },
+        decreaseVote: (state, action: PayloadAction<number>) => {
+            const comment = state.comments.find(comment => comment.id === action.payload);
+            if (comment) {
+                comment.votes -= 1;
+            }
         }
     }
 })
 
-export const {addComment, removeComment} = commentSlice.actions;
+export const {addComment, removeComment, increaseVote, decreaseVote} = commentSlice.actions;
 export default commentSlice.reducer;

@@ -25,6 +25,7 @@ const CommentInput = () => {
             body: data.comment,
             name: 'maxblagun',
             avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`,
+            votes: 0
         };
         dispatch(addComment(newComment));
         reset();
